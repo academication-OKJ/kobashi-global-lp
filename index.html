@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f1e6">
+<meta name="description" content="KOBASHI GLOBAL BUSINESS DEVELOPMENT — 日本の技術を、世界の現場で使われる事業へ。">
+<title>KOBASHI GLOBAL BUSINESS DEVELOPMENT | Takehiro Muraoka</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script>document.documentElement.classList.add("js");</script>
+<style>
+:root{
+  --bg:#f7f1e6;
+  --surface:#fffdf8;
+  --ink:#463a2f;
+  --ink-strong:#30271f;
+  --muted:#887a68;
+  --green:#4f6f45;
+  --green-2:#7f9a70;
+  --earth:#b78658;
+  --earth-soft:#ecd8bb;
+  --line:rgba(70,58,47,.13);
+  --dark:#302820;
+  --dark-muted:#b8aa96;
+  --max:1120px;
+  --nav-h:72px;
+  --radius:12px;
+  --shadow:0 10px 30px rgba(61,48,36,.045);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--nav-h) + env(safe-area-inset-top));
+}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter,"Noto Sans JP",sans-serif;
+  line-height:1.8;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::selection{background:var(--earth-soft)}
+a{color:inherit}
+img{max-width:100%;display:block}
+.jp{font-family:"Noto Serif JP",serif}
+.wrap{width:min(var(--max),calc(100% - 56px));margin-inline:auto}
+section{padding:88px 0;border-bottom:1px solid var(--line)}
+section[id]{scroll-margin-top:calc(var(--nav-h) + 18px)}
+
+.skip{
+  position:fixed;left:16px;top:12px;z-index:1000;
+  transform:translateY(-150%);
+  background:var(--dark);color:#fff;padding:9px 14px;border-radius:7px;
+  text-decoration:none;font-size:.82rem;
+}
+.skip:focus{transform:none}
+
+nav{
+  position:fixed;inset:0 0 auto;z-index:100;
+  min-height:var(--nav-h);
+  padding:0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
+  padding-top:env(safe-area-inset-top);
+  background:rgba(247,241,230,.9);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+nav .wrap{min-height:var(--nav-h);display:flex;align-items:center;gap:24px}
+.brand{font-size:.86rem;font-weight:700;letter-spacing:.1em;white-space:nowrap}
+.brand span{color:var(--muted);font-weight:400}
+.navlinks{
+  display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none;
+}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{
+  position:relative;padding:9px 10px;
+  color:var(--muted);font-size:.72rem;letter-spacing:.06em;
+  text-decoration:none;white-space:nowrap;transition:color .2s ease;
+}
+.navlinks a::after{
+  content:"";position:absolute;left:10px;right:10px;bottom:2px;height:1px;
+  background:var(--green);transform:scaleX(0);transform-origin:left;
+  transition:transform .2s ease;
+}
+.navlinks a:hover,.navlinks a.active{color:var(--green)}
+.navlinks a.active::after{transform:scaleX(1)}
+
+.hero{
+  min-height:calc(100svh - 12px);
+  display:flex;align-items:center;
+  padding:calc(var(--nav-h) + 34px + env(safe-area-inset-top)) 0 58px;
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(circle at 83% 18%,rgba(183,134,88,.17),transparent 30%),
+    radial-gradient(circle at 7% 88%,rgba(113,128,91,.13),transparent 32%);
+}
+.hero::after{
+  content:"";position:absolute;width:38vw;height:38vw;max-width:520px;max-height:520px;
+  right:-14vw;bottom:-18vw;border:1px solid rgba(183,134,88,.16);border-radius:50%;
+}
+.eyebrow{
+  margin-bottom:24px;color:var(--muted);
+  font-size:.76rem;letter-spacing:.18em;font-weight:600;
+}
+.hero h1{
+  max-width:780px;
+  color:var(--ink-strong);
+  font-size:clamp(2rem,5.5vw,4.15rem);
+  line-height:1.48;font-weight:700;letter-spacing:.01em;
+}
+.hero h1 span{color:var(--earth)}
+.hero .sub{
+  margin-top:30px;color:var(--green);
+  font-size:clamp(.68rem,1.6vw,.86rem);
+  letter-spacing:.11em;font-weight:600;
+}
+.hero .msg{
+  margin-top:8px;color:var(--muted);
+  font-size:clamp(1rem,2vw,1.14rem);
+}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:38px
+}
+.hero-meta span{
+  border:1px solid var(--line);background:rgba(255,253,248,.62);
+  border-radius:999px;padding:6px 12px;color:var(--muted);font-size:.75rem;
+}
+
+.label{
+  margin-bottom:15px;color:var(--green);
+  font-size:.72rem;letter-spacing:.18em;font-weight:700;
+}
+h2.title{
+  color:var(--ink-strong);
+  font-family:"Noto Serif JP",serif;
+  font-size:clamp(1.55rem,3.5vw,2.45rem);
+  line-height:1.55;font-weight:700;
+}
+.section-sub,.body{
+  color:var(--muted);font-size:1rem;max-width:690px;
+}
+.section-sub{margin-top:12px}
+.body{margin-top:18px}
+.lead{font-size:1.05rem}
+
+.fade{
+  opacity:1;transform:none;
+  transition:opacity .75s ease,transform .75s ease;
+}
+.js .fade{opacity:0;transform:translateY(18px)}
+.js .fade.in{opacity:1;transform:none}
+#roadmap{padding:76px 0}
+#roadmap .timeline{gap:20px}
+#roadmap .tl-item{padding-bottom:8px}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .fade{opacity:1;transform:none}
+}
+
+.kw-list{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px
+}
+.kw-list>div,.col-box,.principle{
+  background:rgba(255,253,248,.7);border:1px solid var(--line);
+  border-radius:var(--radius);box-shadow:var(--shadow)
+}
+.kw-list>div{padding:20px 18px}
+.kw-word{
+  display:block;margin-bottom:7px;color:var(--green);
+  font-family:"Noto Serif JP",serif;font-size:1rem;font-weight:700;
+}
+.kw-desc{display:block;color:var(--muted);font-size:.84rem;line-height:1.65}
+
+.stage-tag{
+  display:inline-flex;padding:5px 13px;margin-bottom:19px;
+  border:1px solid var(--green-2);border-radius:999px;
+  color:var(--green);font-size:.72rem;letter-spacing:.1em;font-weight:600
+}
+
+.two-col{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:34px
+}
+.col-box{padding:25px}
+.col-box h4{
+  margin-bottom:13px;color:var(--green);
+  font-size:.76rem;letter-spacing:.11em;font-weight:700
+}
+.col-box p{color:var(--muted)}
+.col-box ul{list-style:none;color:var(--muted);font-size:.9rem}
+.col-box li{padding:7px 0;border-bottom:1px dashed var(--line)}
+.col-box li:last-child{border-bottom:0}
+
+.stepflow,.flow{
+  display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:18px
+}
+.stepflow span,.flow span{
+  display:inline-flex;align-items:center;gap:7px;
+  border:1px solid var(--line);background:var(--surface);
+  border-radius:999px;color:var(--ink);font-size:.82rem;padding:7px 12px;
+}
+.stepflow b{
+  width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;
+  border-radius:50%;background:var(--green);color:#fff;font-size:.62rem
+}
+.stepflow i,.flow i{color:var(--earth);font-style:normal;font-size:.8rem}
+.mini-label{
+  margin-top:30px;color:var(--muted);font-size:.72rem;letter-spacing:.12em;font-weight:700
+}
+
+.digital-grid{
+  display:grid;grid-template-columns:1.35fr .65fr;gap:22px;margin-top:34px
+}
+.lang-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.lang-row span{
+  padding:6px 11px;border:1px solid var(--line);border-radius:999px;
+  color:var(--muted);font-size:.77rem
+}
+.cta-note{
+  margin-top:24px;padding:18px 20px;border-left:3px solid var(--earth);
+  background:rgba(236,216,187,.22);color:var(--muted);font-size:.9rem
+}
+.local-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;margin-top:20px
+}
+.local-grid>div{
+  display:grid;grid-template-columns:26px 1fr;column-gap:7px;
+  padding:10px 11px;border:1px solid var(--line);
+  border-radius:8px;background:rgba(247,241,230,.45)
+}
+.local-grid b{
+  grid-row:span 2;color:var(--earth);font-size:.7rem
+}
+.local-grid span{
+  color:var(--green);font-size:.69rem;letter-spacing:.07em;font-weight:700
+}
+.local-grid small{
+  color:var(--muted);font-size:.72rem;line-height:1.5
+}
+.pipeline{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;margin-top:20px
+}
+.pipeline>div{
+  display:grid;grid-template-columns:30px 1fr;
+  padding:10px 11px;border:1px solid var(--line);border-radius:8px;
+  background:rgba(247,241,230,.45)
+}
+.pipeline strong{grid-row:span 2;color:var(--earth);font-size:.7rem}
+.pipeline span{color:var(--green);font-size:.69rem;letter-spacing:.06em;font-weight:700}
+.pipeline small{color:var(--muted);font-size:.72rem;line-height:1.5}
+.always-on{
+  display:flex;align-items:flex-start;gap:16px;margin-top:20px;
+  padding:20px 22px;border:1px solid rgba(79,111,69,.28);
+  border-radius:var(--radius);
+  background:linear-gradient(90deg,rgba(127,154,112,.13),rgba(255,253,248,.62));
+}
+.always-icon{
+  flex:0 0 auto;color:var(--green);font-size:1.55rem;line-height:1.2;font-weight:600
+}
+.always-on strong{display:block;color:var(--green);font-size:.96rem}
+.always-on p{margin-top:5px;color:var(--muted);font-size:.82rem;line-height:1.7}
+
+.business-engine{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:16px
+}
+.business-engine>div{
+  padding:13px 11px;border-top:2px solid var(--green);
+  background:rgba(255,253,248,.65);border-radius:0 0 8px 8px
+}
+.business-engine b{display:block;color:var(--green);font-size:.68rem;letter-spacing:.05em}
+.business-engine span{display:block;color:var(--earth);font-size:.74rem;font-weight:700;margin-top:3px}
+.business-engine small{display:block;color:var(--muted);font-size:.68rem;line-height:1.5;margin-top:4px}
+
+
+.loop-wrap{position:relative}
+.loop-track{
+  display:grid;grid-template-columns:repeat(10,minmax(132px,1fr));
+  gap:28px;margin-top:36px;overflow-x:auto;padding:6px 3px 20px;
+  scrollbar-width:thin;
+}
+.loop-card{
+  position:relative;min-width:132px;padding:19px 15px;
+  background:var(--surface);border:1px solid var(--line);border-radius:10px;
+}
+.loop-card::after{
+  content:"→";position:absolute;right:-23px;top:50%;transform:translateY(-50%);
+  color:var(--earth);font-size:.9rem
+}
+.loop-card:last-child::after{content:"↺"}
+.loop-card .n{display:block;color:var(--earth);font-size:1.15rem;font-weight:700}
+.loop-card .en{
+  display:block;margin-top:8px;color:var(--gree
+KOBASHI GLOBAL
+WHY
+LEARN
+DESIGN
+DIGITAL
+BUILD
+LOOP
+SCALE
+ROLE
+VISION
+KOBASHI HOLDINGS — GLOBAL BUSINESS DEVELOPMENT
+日本の技術を、世界の現場で使われる事業へ。
+LEARN → DESIGN → DIGITALIZE → TEST → BUILD → SCALE → AUTONOMIZE
+海外事業を、「販売」から「事業」へ。
+JAPAN × GLOBAL
+AGRICULTURE
+DIGITAL
+FIELD FIRST
+WHY KOBASHI
+まず、KOBASHIを知ることから。
+これまで日本・欧州・北米・中国・東南アジアで、海外営業、新規市場開拓、拠点立ち上げ、現地チーム構築、代理店・顧客との折衝に携わってきました。加えて、2023年頃からは仕事の傍ら自ら畑を耕し、農業の現場にも触れています。だからこそ、最初から「売る方法」を決めるのではなく、まずKOBASHIの技術・製品・現場・既存市場を理解するところから始めたいと考えています。
+JAPAN
+日本のものづくりが持つ品質と信頼
+GLOBAL
+海外営業・拠点立ち上げで得た現地理解
+AGRICULTURE
+自ら農業に取り組んだ現場感覚
+TECHNOLOGY
+現場で実際に機能する製品・技術
+0–3 MONTHS
+STEP 01 — LEARN
+まず、KOBASHIを知る。
+この期間は「変える」ことより「理解する」ことを優先します。
+理解する対象
+	•	製品・技術・製造現場
+	•	製品ごとの強みと用途
+	•	既存海外市場・既存代理店
+	•	顧客・競合・価格帯
+	•	開発・品質・サービス体制
+社内の理解
+	•	営業
+	•	開発
+	•	製造
+	•	システム
+	•	海外事業に関わる意思決定プロセス
+3 MONTHS+
+STEP 02 — DESIGN
+理解した情報を、少しずつ戦略と施策へ。
+最初から大規模な海外展開を目指すのではなく、「どの国で、どの製品を、誰に、どんな価値として、どの販売方法で届けるのか」を小さく仮説検証しながら組み立てます。
+検討する順番
+1Market
+→
+2Product
+→
+3Customer
+→
+4Distributor
+→
+5Value Proposition
+→
+6Sales Method
+検証のサイクル
+1Hypothesis
+→
+2Execute
+→
+3Measure
+→
+4Improve
+3 MONTHS+
+STEP 03 — DIGITALIZE
+世界からKOBASHIへ、接点を増やす。
+Webサイトをつくること自体が目的ではありません。目的は、潜在顧客・代理店・パートナーとの接点を増やし、問い合わせから商談、デモ、実証へ進めることです。
+WEBSITE
+→
+LOCALIZED LP
+→
+PRODUCT INFO
+→
+USE CASE
+→
+INQUIRY
+→
+WEB MEETING
+→
+DEMO
+→
+FIELD TRIAL
+LOCALIZATION — 「翻訳」ではなく「市場化」
+国ごとに、言語だけでなく「誰が、何に困り、何を判断材料にして購入するのか」まで変える。製品情報を現地の商習慣・農業条件・顧客課題に合わせて組み替えます。
+01
+LANGUAGE
+英語・ベトナム語・タイ語・インドネシア語・中国語
+02
+MARKET
+市場規模・競合・価格帯・規制・購入決裁
+03
+AGRICULTURE
+作物・土壌・気候・圃場・作業体系
+04
+MACHINE
+トラクター馬力・PTO・作業幅・適合作業
+05
+VALUE
+作業時間・面積・燃料・生産性・投資回収
+06
+CHANNEL
+代理店・ディーラー・農業法人・サービス事業者
+07
+PROOF
+Demo・Field Trial・導入事例・顧客データ
+08
+SERVICE
+導入支援・部品・保守・問い合わせ体制
+English
+Vietnamese
+Thai
+Indonesian
+Chinese
+SYSTEM × SALES — 常に「次の案件」がある状態へ
+LPを作って待つのではなく、複数市場で見込み顧客・代理店候補・実証案件を継続的に蓄積します。問い合わせが途切れても、次の候補へすぐ動ける営業資産をつくります。
+01
+LEAD
+Web / 展示会 / 紹介 / Partner
+02
+QUALIFY
+国・製品・用途・規模を確認
+03
+MEETING
+Web面談・ヒアリング
+04
+DEMO
+製品説明・オンライン/現地Demo
+05
+FIELD TRIAL
+実証案件化
+06
+OPPORTUNITY
+見積・商談・代理店化
+07
+SALES
+受注・導入・Service
+08
+NEXT
+紹介・追加販売・次案件
+∞
+「案件が発生した時に動く」のではなく、「案件が常に生まれ続ける状態」をつくる。
+市場ごとにLead → Meeting → Demo → Trial → Salesの母数を持ち、週次・月次でKPIを確認する。受注だけでなく、次の商談・次の実証・次の代理店候補を先行して積み上げます。
+1–3 YEARS
+STEP 04 — TEST / BUILD
+小さく実証し、売れる仕組みをつくる。
+Webで問い合わせを集めて終わらせず、現場で価値を確認し、再現可能な販売モデルへつなげます。
+Inquiry
+→
+Web Meeting
+→
+Distributor Candidate
+→
+Demo
+→
+Field Trial
+→
+Sales
+→
+Service
+FIELD TRIALで確認すること
+	•	作業時間
+	•	作業面積・作業速度
+	•	燃料
+	•	導入コスト
+	•	生産性
+販売後まで含めて仕組み化する
+	•	販売方法・代理店教育
+	•	導入支援・アフターサービス
+	•	部品供給・在庫設計
+	•	KPI・顧客データ
+	•	顧客の声 → 製品改良
+「売れた」で終わらせず、「なぜ売れたのか」「なぜ使い続けてもらえるのか」まで理解し、次の市場へ再現できるモデルにする。
+LEADS
+常時蓄積
+Web・展示会・紹介・代理店開拓
+MEETINGS
+継続創出
+ヒアリング・用途確認・案件化
+TRIALS
+実証化
+Demo・Field Trial・効果測定
+ORDERS
+受注
+販売・導入・サービス
+REFERRALS
+再循環
+紹介・追加販売・次案件
+GLOBAL BUSINESS LOOP
+売るのではなく、循環をつくる。
+販売後の顧客の声をKOBASHIへ戻し、製品・サービスの改善と次の市場につなげます。
+01
+MARKET
+市場を見る
+02
+DISCOVER
+需要を見つける
+03
+DEMO
+実際に見せる
+04
+FIELD TRIAL
+現場で試す
+05
+SALES
+販売する
+06
+DELIVERY
+届ける
+07
+SERVICE
+使い続けてもらう
+08
+CUSTOMER DATA
+声を集める
+09
+PRODUCT
+製品を進化させる
+10
+NEXT MARKET
+次の市場へ
+↺
+NEXT MARKETから、またMARKETへ。売って終わらない循環が、次の市場につながります。
+3–5 YEARS
+STEP 05 — SCALE
+成功モデルを、複数市場へ横展開する。
+複数市場を同時に追うのではなく、一つの市場で作った成功モデルを、条件に合わせて別市場へ適応させていきます。
+✓Country A — Model
+→
+Country B
+→
+Country C
+→
+Country D
+共通化するもの
+	•	営業プロセス
+	•	LP・製品説明の基本構造
+	•	Demo方法
+	•	KPI・代理店教育
+	•	Service Model / Customer Feedback
+現地化するもの
+	•	言語
+	•	農業環境・土壌・作物
+	•	トラクター・機材条件
+	•	商習慣・代理店
+	•	価格・規制
+5–10 YEARS
+STEP 06 — GLOBAL EXPANSION
+さらに多くの市場へ。
+目的は国数を増やすことではありません。Market・Product・Distributor・Service・Digital・Dataというモデルを、異なる市場条件に合わせて適応させていきます。
+Customer
+→
+Distributor
+→
+KOBASHI
+→
+Development
+→
+New Product
+→
+New Market
+10+ YEARS
+STEP 07 — AUTONOMIZE
+各国が、自ら事業を動かせる状態へ。
+最終的には、自分自身がすべての国を細かく管理することを目標にしません。各国が自律的に判断しながら、KOBASHIと連携して成長し続けられる事業体制をつくります。
+各国に整える仕組み
+DistributorSalesService PartsMarketingCustomer Data / KPI
+日本からすべてを細かく指示するのではなく、「現地に任せる。ただし、放任はしない」という状態を目指します。
+MY ROLE
+私が担いたい役割。
+01
+PLAYER
+まず自分が現場に入る。
+02
+BUILDER
+売れる仕組みをつくる。
+03
+EXPANDER
+成功モデルを複数市場へ展開する。
+04
+LEADER
+人と仕組みを育てる。
+05
+ARCHITECT
+特定の個人に依存しない事業をつくる。
+まずは製品・現場・進捗を理解し、仕組みをつくり、人を育てる。最終的には、特定の個人の力だけに依存せず、各国の事業が成長し続けられるシステムを残したいと考えています。
+FINAL ROADMAP
+KOBASHIを理解する → 世界で自律する。
+1–3
+MONTHS — LEARN
+KOBASHIを知る
+3+
+MONTHS — DESIGN
+戦略・施策をつくる
+6+
+MONTHS — DIGITALIZE
+海外との接点を増やす
+1+
+YEAR — TEST / BUILD
+実証・販売モデルを構築する
+3+
+YEARS — SCALE
+複数市場へ横展開する
+10+
+YEARS — AUTONOMIZE
+各国が自律的に運営する
+VISION
+地球を耕す、その舞台を世界へ。
+KOBASHI × GLOBAL × AGRICULTURE
+KOBASHIが掲げる「地球を耕す」という理念を、農業機械という中核事業から世界の現場へ広げていく。まず一つの市場で事業モデルをつくり、それを次の市場へつなげ、最終的には各国が自律的に成長できる仕組みを残す。そこまでを見据えた海外事業開発にしたいと考えています。
+5
+YEARS — 成功モデルをつくる。
+10
+YEARS — 複数市場へ展開する。
+10+
+YEARS — 自律的に成長できる仕組みを残す。
+LEARN
+DESIGN
+DIGITALIZE
+TEST
+BUILD
+SCALE
+AUTONOMIZE
+Takehiro Muraoka
+Global Business Development
